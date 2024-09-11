@@ -10,8 +10,11 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
+        include:
+          # @actions/setup-node does not support Node.js 14 for maOS
+          - node-version: 14
+            os: ubuntu-latest
         node:
-          - 14
           - 16.0.0
           - 16
           - 18.0.0
